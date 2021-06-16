@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <title>矿池算力分布详情</title>
+  <script type="text/javascript" src="../js/echarts.min.js"></script>
+
+  <style>
+    body {
+      background-image: url("../images/bg.jpg");
+    }
+    div {
+    }
+  </style>
+
+</head>
+</head>
+<body>
+<div id="main" style="width: 1600px;height:900px;margin: 0 auto;background: rgba(0,0,0,.2)"></div>
+<script>
+  var myChart = echarts.init(document.getElementById('main'));
+  option = {
+    tooltip : {
+      trigger: 'item',
+      formatter: "{b} : {c} ({d}%)"
+    },
+    legend: {
+      right:10,
+      top:30,
+      height:140,
+      itemWidth:10,
+      itemHeight:10,
+      itemGap:10,
+      textStyle:{
+        color: 'rgba(255,255,255,.6)',
+        fontSize:12
+      },
+      orient:'vertical',
+      data:['SparkPool','Ethermine','Huobi','F2Pool','Hiveon','BeePool','SpiderPool','NanoPool','BabelPool',
+        '2MinerPLNS','MiningPoolHub','XnPool','2MinerSOLO','2MinerSOLO','viaBTC','BTC.com','Others']
+    },
+    calculable : true,
+    series : [
+      {
+        name:' ',
+        color: ['#62c98d', '#2f89cf', '#4cb9cf', '#53b666', '#62c98d', '#205acf', '#c9c862', '#c98b62', '#c962b9', '#7562c9','#c96262'],
+        type:'pie',
+        radius : [200, 300],
+        center : ['35%', '50%'],
+        roseType : 'radius',
+        label: {
+          normal: {
+            show: true
+          },
+          emphasis: {
+            show: true
+          }
+        },
+
+        lableLine: {
+          normal: {
+            show: false
+          },
+          emphasis: {
+            show: true
+          }
+        },
+
+        data:[
+          {value:140.76, name:'SparkPool'},
+          {value:118.71, name:'Ethermine'},
+          {value:109.06, name:'Huobi'},
+          {value:37.06, name:'F2Pool'},
+          {value:30.54, name:'Hiveon'},
+          {value:28.39, name:'BeePool'},
+          {value:25.96, name:'SpiderPool'},
+          {value:22.05, name:'NanoPool'},
+          {value:21.09, name:'BabelPool'},
+          {value:15.95, name:'2MinerPLNS'},
+          {value:14.03, name:'MiningPoolHub'},
+          {value:4.6, name:'XnPool'},
+          {value:3.86, name:'2MinerSOLO'},
+          {value:2.37, name:'viaBTC'},
+          {value:1.59, name:'BTC.com'},
+          {value:3.52, name:'Others'},
+        ]
+      },
+    ]
+  };
+  myChart.setOption(option);
+
+
+</script>
+</body>
+</html>
